@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="user_base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section class="text-center">
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					  <td>
+                    <img th:src="@{'/user/view_student/' + ${stinfo.s_id}}" alt="User Image" width="80" height="100">
+                </td>
+					<h1 class="text-center" th:text="${stinfo.name}"></h1>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Student ID</th>
+								<td scope="col">Student <span th:text="${stinfo.s_id}"></span></td>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<th scope="row">Enrollment Number</th>
+								<td><span th:text="${stinfo.enrollment_no}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Roll Number</th>
+								<td><span th:text="${stinfo.roll_no}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Name</th>
+								<td><span th:text="${stinfo.name}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Father's Name</th>
+								<td><span th:text="${stinfo.fatherName}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Mother's Name</th>
+								<td><span th:text="${stinfo.motherName}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Date of Birth</th>
+								<td><span th:text="${stinfo.dob}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Gender</th>
+								<td><span th:text="${stinfo.gender}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Email Address</th>
+								<td><span th:text="${stinfo.email}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Contact Number 1</th>
+								<td><span th:text="${stinfo.contact_no_1}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Contact Number 2</th>
+								<td><span th:text="${stinfo.contact_no_2}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Address</th>
+								<td><span th:text="${stinfo.address}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">District</th>
+								<td><span th:text="${stinfo.district}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">State</th>
+								<td><span th:text="${stinfo.state}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Pin Code</th>
+								<td><span th:text="${stinfo.pincode}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Aadhaar Number</th>
+								<td><span th:text="${stinfo.aadhaar_no}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">PAN</th>
+								<td><span th:text="${stinfo.pan_no}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">religion</th>
+								<td><span th:text="${stinfo.religion}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Category</th>
+								<td><span th:text="${stinfo.category}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Admission Year</th>
+								<td><span th:text="${stinfo.admission_year}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Admission Type</th>
+								<td><span th:text="${stinfo.admission_type}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Department</th>
+								<td><span th:text="${stinfo.department}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Course</th>
+								<td><span th:text="${stinfo.course}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Branch</th>
+								<td><span th:text="${stinfo.branch}"></span></td>
+							</tr>
+
+                            <tr>
+								<th scope="row">10th Marks</th>
+								<td><span th:text="${stinfo.tenth_marks}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">10th Passing Year</th>
+								<td><span th:text="${stinfo.tenth_passing_year}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">10th Board</th>
+								<td><span th:text="${stinfo.tenth_board}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">12th Marks</th>
+								<td><span th:text="${stinfo.twelth_marks}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">12th Passing Year</th>
+								<td><span th:text="${stinfo.twelth_passing_year}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">12th Board</th>
+								<td><span th:text="${stinfo.twelth_board}"></span></td>
+							</tr>
+
+
+							<tr>
+								<th scope="row">12th Stream</th>
+								<td><span th:text="${stinfo.twelth_stream}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Diploma Course</th>
+								<td><span th:text="${stinfo.diploma_course}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Diploam Branch</th>
+								<td><span th:text="${stinfo.diploma_branch}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Diploma Marks</th>
+								<td><span th:text="${stinfo.diploma_marks}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Diploma Passing Year</th>
+								<td><span th:text="${stinfo.diploma_passing_year}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Graduation University</th>
+								<td><span th:text="${stinfo.graduation_university}"></span></td>
+							</tr>
+
+
+							<tr>
+								<th scope="row">Graduation Course</th>
+								<td><span th:text="${stinfo.graduation_course}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Graduation Branch</th>
+								<td><span th:text="${stinfo.graduation_branch}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Graduation Marks</th>
+								<td><span th:text="${stinfo.graduation_marks}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Graduation Passing Year</th>
+								<td><span th:text="${stinfo.graduation_passing_year}"></span></td>
+							</tr>
+
+
+
+							<tr>
+								<th scope="row">Transfer Certificate</th>
+								<td><span th:text="${stinfo.tc}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Character Certificate</th>
+								<td><span th:text="${stinfo.cc}"></span></td>
+							</tr>
+
+
+							<tr>
+								<th scope="row">Aadhaar Card</th>
+								<td><span th:text="${stinfo.aadhaar_card}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">10th Marksheet</th>
+								<td><span th:text="${stinfo.tenth_marksheet}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">12th Marksheet</th>
+								<td><span th:text="${stinfo.twelth_marksheet}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Diploma</th>
+								<td><span th:text="${stinfo.diploma}"></span></td>
+							</tr>
+
+							<tr>
+								<th scope="row">Graduation Degree</th>
+								<td><span th:text="${stinfo.graduation_degree}"></span></td>
+							</tr>
+
+						</tbody>
+
+					</table>
+					<div class="container text-center mt-4">
+						<a th:href="@{'/user/admission_letter/'+${stinfo.s_id}}" class="btn btn-primary btn-block">Generate Admission
+							Letter</a>
+						<a th:href="@{'/user/admission_slip/'+${stinfo.s_id}}" class="btn btn-warning btn-block text-white">Generate
+							Admission Slip</a>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</section>
+</body>
+
+</html>

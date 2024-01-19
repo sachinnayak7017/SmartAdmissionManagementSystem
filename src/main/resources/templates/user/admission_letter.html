@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section class="container">
+		<div class="container"
+			style="border: 4px solid dodgerblue; margin-left: 100px; margin-right: 100px; margin-top: 60px; padding-left: 30px;">
+
+			<div class="card">
+				<button class="btn btn-outline-primary" onclick="print()"
+					style="width: 80px; margin-left: 990px;margin-top: 10px;">Print</button>
+				<div class="card-body">
+
+					<div class="card-body">
+						<div class="card-body" style="  border: 4px solid  white; display: flex; align-items: center;">
+							<img th:src="@{/Images/shobhit1.png}" alt="" style="height: 90px;" />
+							<h3 style="margin-left: 380px;">Adarsh Institutional Area, Babu Vijendra Marg.
+								247341,India
+								<br>
+								Tel: +91 1331-236300
+								<br>
+								Mo: +91 7830810052
+								<br>
+								E-mail : admissionsug@shobhituniversity.ac.in
+								<br>
+								www.shobhituniversity.ac.in
+							</h3>
+						</div>
+					</div>
+
+
+				
+
+
+					<h1 class="text-center" style="text-align: center; font-size: 50px;">Addmission offer letter</h1>
+					<!--<h4 style="font-size: 19px;">Email: [[${stpinfo.email}]]</h4>-->
+					<h4 style="font-size: 19px;">Enrollment: [[${stinfo.enrollment_no}]]</h4>
+
+					<span class="to" style="margin-left: 4px;">To</span>
+					<span style="font-size: 19px;"><b>Mr./ Ms [[${stinfo.name}]]</b></span>
+					<br>
+					<span style="font-size: 19px;" s>Dear Student,</span>
+					<p style="font-size: 19px;">Please refer to your application in<b> [[${stinfo.course}]] </b>and
+						subsequent admission counseling.
+						The admission committee is pleased to offer you provisional seat in first year of
+						<b> [[${stinfo.course}]] [[${stinfo.branch}]]</b> program during
+						session<b>[[${stinfo.admission_year}]]</b>.
+					</p>
+					<h5>Congratulations and welcome to shobhit university !</h5>
+					<p style="font-size: 19px;">Shobhit University, Gangoh is notified by Government of U.P vide shobhit
+						University
+						Uttar Pradesh act 2011 (Act 3 of 2012) and recognized u/s 2(f) of UGC Act, 1996,
+					</p>
+					<p style="font-size: 19px;">In order to further secure your seat in the program offered, you are
+						advised to complete
+						the following admission formalities.
+					</p>
+					<h4 style="margin-left: 25px;">1. Produce self-affested copies of your certificates as per program
+						eligibility norms along
+						with original certificates for verification. The original certificates would be returned back to
+						you
+						after verification.
+					</h4>
+					<h4 style="margin-left: 25px;">2. Read all neccessary rules pertaining to your study and stay-as
+						applicable and sign a declaration
+						that you have understand all clauses and shall sbide by them.
+					</h4>
+					<h4 style="margin-left: 25px;">3. Deposit the prescribed fee on/before____</h4>
+					<p style="font-size: 19px;">please note that this offer is provisional and is subject to completion
+						of all above formalities to the
+						satisfaction of admission committee. This letter shall become null and void and shall stand
+						automatically
+						withdrawn in case all formalities as mentioned above are not fulfill by you.
+					</p>
+					<h5>We Thank you once again for choosing us as your higher education learing destination.</h5>
+					<img th:src="@{/Images/mohr4.jpg}" alt="" style="height: 190px;  margin-left: 550px;" />
+					<p>The University reverse the right to cancel admission even after satisfying stipulated formalities
+						by one student assiging any reason whatever..
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+	</section>
+</body>
+
+</html>

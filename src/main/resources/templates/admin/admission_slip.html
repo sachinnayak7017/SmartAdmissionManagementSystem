@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<section>
+
+		<div class="container" style="border: 4px solid dodgerblue;">
+		
+		<div class="card" style="margin-top: 25px;">
+			<button class="btn btn-outline-primary" onclick="print()" style="width: 80px; margin-left: 800px;">Print</button>
+			<div class="card-body">
+<div class="card-body" style="   display: flex; align-items: center;">
+	<img th:src="@{/Images/shobhit1.png}" alt="" style="height: 70px;"/>
+<h5 style="margin-left: 80px;">Babu Veijendra Marg. Adarsh Institutional Area Gangoh,Saharanpur(U.P.)
+	247341,India 
+	Tel: +91 1331-236300
+	Mo: +91 7830810052
+	E-mail : admissionsug@shobhituniversity.ac.in
+	www.shobhituniversity.ac.in
+</h5>
+</div>
+			</div>
+		</div>
+		</div>
+		
+				
+				<div class="data" style="background-color: cornflowerblue; margin-top: 6px; text-align: center; color: white; border: 4px solid royalblue;"><h2>Students Details (Session-2023-24)</h2></div>
+				<table class="table table-striped">
+  
+  <thead>
+				<tr>
+					<th scope="col">Registration No</th>
+					
+					<td scope="col">[[${stinfo.enrollment_no}]]</td>
+				<th scope="col">Contact Number</th>
+				<td scope="col">[[${stinfo.contact_no_1}]]</td>
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<th scope="col">Date of Brith</th>
+					
+					<td scope="col">[[${stinfo.dob}]]</td>
+				<th scope="col">Email-Id</th>
+				<td scope="col">[[${stinfo.email}]]</td>
+				</tr>
+				
+				<tr>
+					<th scope="col">Student Name</th>
+					
+					<td scope="col">[[${stinfo.name}]]</td>
+				<th scope="col">Mother Name</th>
+				<td scope="col">[[${stinfo.motherName}]]</td>
+				</tr>
+				
+				<tr>
+					<th scope="col">Father Name</th>
+					
+					<td scope="col">[[${stinfo.fatherName}]]</td>
+				<th scope="col">Category</th>
+				<td scope="col">[[${stinfo.category}]]</td>
+				</tr>
+				
+				<tr>
+					<th scope="col">Course</th>
+					
+					<td scope="col">[[${stinfo.course}]]</td>
+				<th scope="col">Amount Paid</th>
+				<td scope="col">null</td>
+				</tr>
+				
+				<tr>
+					<th scope="col">Branch</th>
+					
+					<td scope="col">[[${stinfo.branch}]]</td>
+				<th scope="col">Receipt</th>
+				<td scope="col">null</td>
+				</tr>
+				
+				
+				<tr>
+					<th scope="col">Year</th>
+					
+					<td scope="col">[[${stinfo.admission_year}]]</td>
+				<th scope="col">Full Fee
+					<br>
+					Submission Date
+				</th>
+				<td scope="col">null</td>
+				</tr>
+				
+				
+				
+			</tbody>
+			
+		</table>
+		
+				
+			</div>
+		</div>
+		</div>
+		
+
+	</section>
+
+
+</body>
+
+</html>

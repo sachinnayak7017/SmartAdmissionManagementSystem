@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="main_base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>index page</title>
+</head>
+
+<body>
+	<section>
+		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+        <img th:src="@{/Images/sug.jpeg}" class="d-block w-100" width="100%" height="588vh" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+           
+            <h1 class="font-weight-bold">Smart Admission Management System</h1>
+            <p class="font-weight-bold">Start Collecting your student's data in a very smarter way. We provide an efficient and smarter way of handling data</p>
+        </div>
+    </div>
+				<div class="carousel-item">
+					<img th:src="@{/Images/sug1.jpeg}" class="d-block w-100"  width = 100%;
+	height = 588vh ; alt="...">
+					<div class="carousel-caption d-none d-md-block">
+           
+            <h1 class="font-weight-bold">Smart Admission Management System</h1>
+            <p class="font-weight-bold">Start Collecting your student's data in a very smarter way. We provide an efficient and smarter way of handling data</p>
+        </div>
+				</div>
+				<div class="carousel-item">
+					<img th:src="@{/Images/sug2.jpeg}" class="d-block w-100"  width = 100%;
+	height = 588vh ;  alt="...">
+					<div class="carousel-caption d-none d-md-block">
+           
+            <h1 class="font-weight-bold">Smart Admission Management System</h1>
+            <p class="font-weight-bold">Start Collecting your student's data in a very smarter way. We provide an efficient and smarter way of handling data</p>
+        </div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</section>
+
+	<!--<section>
+
+		<section class="banner d-flex justify-content-center align-items-center">
+			<div class="text-center">
+				<img th:src="@{/Images/sbht3.png}" alt="" />
+				  <h1><b>Welcome To</b> </h1>
+				<h1 class="font-weight-bold">Smart Admission Management System</h1>
+				
+				<p class="font-weight-bold">Start Collecting your student's data in very smarter way. We provide very efficient and smarter way of
+					handling data</p>
+				<button class="btn btn-primary btn-lg " >Get Start</button>
+				
+			</div>
+		</section>
+
+	</section>-->
+</body>
+
+</html>

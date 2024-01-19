@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="user_base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section class="text-center">
+		
+		<h1>Excel File Upload</h1>
+		<form action="/user/upload" method="POST" enctype="multipart/form-data">
+			<input type="file" name="file" id="file" accept=".xlsx, .xls" >
+			<button type="submit"color="primary" >Upload and Import</button>
+		</form>
+
+		<div th:if="${param.success}" class="alert alert-success">
+			File uploaded and data imported successfully.
+		</div>
+
+		<div th:if="${param.error}" class="alert alert-danger">
+			Error uploading file.
+		</div>
+
+
+		
+			</section>
+</body>
+
+</html>

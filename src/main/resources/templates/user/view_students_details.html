@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user_base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title></title>
+</head>
+
+<body>
+	<section>
+
+		<div class="container">
+			<h2 class="text-center py-3">Student's Details</h2>
+
+			<th:block thLif="${session.msg}">
+				<p class="text-center text-success fs-4">[[${session.msg}]]</p>
+
+				<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+			</th:block>
+
+			<div>
+				<form th:action="@{/user/filterper}" method="get">
+					<input id="textSearch" type="text" placeholder="Search for Student" name="keyword"
+						style="height: 5vh; width: 43vw; margin-bottom:5px; font-size: 20px; border: 2px solid dodgerblue; border-radius: 4px;">
+					<button class="btn btn-primary" type="submit"
+						style="width: 7vw; margin-bottom: 4px; ">Search</button>
+				</form>
+
+
+			</div>
+			<br>
+			<form th:action="@{/user/deletes}" method="post" id="deleteForm">
+				<br>
+				<button type="submit" class="btn btn-danger" onclick="return confirmDelete()">Delete Selected</button>
+				<br>
+				<br>
+
+				<table class="table">
+					<thead class="bg-primary text-white">
+						<tr>
+							<th scope="col">View</th>
+							<th scope="col">Update</th>
+							<th scope="col">Delete</th>
+
+							<th scope="col">Select</th>
+							<th scope="col">Id</th>
+							<th scope="col">Student Image</th>
+							<th scope="col">Enrollment Number</th>
+							<th scope="col">Roll Number</th>
+							<th scope="col">Student Name</th>
+							<th scope="col">Father's Name</th>
+							<th scope="col">Mother's Name</th>
+							<th scope="col">DOB</th>
+							<th scope="col">Gender</th>
+							<th scope="col">Email Address</th>
+							<th scope="col">Contact1</th>
+							<th scope="col">Contact2</th>
+							<th scope="col">Address</th>
+							<th scope="col">District</th>
+							<th scope="col">State</th>
+							<th scope="col">Pin Code</th>
+							<th scope="col">Aadhaar Number</th>
+							<th scope="col">PAN Number</th>
+							<th scope="col">Religion</th>
+							<th scope="col">Category</th>
+							<th scope="col">Admission Year</th>
+							<th scope="col">Admission Type</th>
+							<th scope="col">Department</th>
+							<th scope="col">Course</th>
+							<th scope="col">Branch</th>
+
+							<th scope="col">10th Marks (%)</th>
+							<th scope="col">10th Passing Year</th>
+							<th scope="col">10th Board</th>
+							<th scope="col">12th Marks (%)</th>
+							<th scope="col">12th Passing Year</th>
+							<th scope="col">12th Board</th>
+							<th scope="col">12th Stream</th>
+							<th scope="col">Diploma Course</th>
+							<th scope="col">Branch</th>
+							<th scope="col">Diploma Marks (%)</th>
+							<th scope="col">Diploma Passing Year</th>
+							<th scope="col">Graduation University</th>
+							<th scope="col">Graduation Course</th>
+							<th scope="col">Branch</th>
+							<th scope="col">Graduation Marks (%)</th>
+							<th scope="col">Graduation Passing Year</th>
+							<th scope="col">TC</th>
+							<th scope="col">CC</th>
+							<th scope="col">Aadhaar Card</th>
+							<th scope="col">10th Marksheet</th>
+							<th scope="col">12th Marksheet</th>
+							<th scope="col">Diploma</th>
+							<th scope="col">Graduation Degree</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="stp: ${stinfo}">
+							<td>
+								<a class="btn btn-sm btn-warning"
+									th:href="@{'/user/show_student_details/'+${stp.s_id}}">View</a>
+							</td>
+							<td>
+								<a class="btn btn-sm btn-primary"
+									th:href="@{'/user/update_students_details/'+${stp.s_id}}">Update</a>
+							</td>
+							<td>
+								<a class="btn btn-sm btn-danger" th:href="@{'/user/delete/'+${stp.s_id}}">Delete</a>
+							</td>
+
+							<td>
+								<input type="checkbox" th:name="studentIds" th:value="${stp.s_id}">
+							</td>
+							<td th:text="${stp.s_id}"></td>
+							<td>
+								<img th:src="@{'/user/view_student/' + ${stp.s_id}}" alt="User Image" width="80"
+									height="100">
+							</td>
+
+							<td th:text="${stp.enrollment_no}"></td>
+							<td th:text="${stp.roll_no}"></td>
+							<td th:text="${stp.name}"></td>
+							<td th:text="${stp.fatherName}"></td>
+							<td th:text="${stp.motherName}"></td>
+							<td th:text="${stp.dob}"></td>
+							<td th:text="${stp.gender}"></td>
+							<td th:text="${stp.email}"></td>
+							<td th:text="${stp.contact_no_1}"></td>
+							<td th:text="${stp.contact_no_2}"></td>
+							<td th:text="${stp.address}"></td>
+							<td th:text="${stp.district}"></td>
+							<td th:text="${stp.state}"></td>
+							<td th:text="${stp.pincode}"></td>
+							<td th:text="${stp.aadhaar_no}"></td>
+							<td th:text="${stp.pan_no}"></td>
+							<td th:text="${stp.religion}"></td>
+							<td th:text="${stp.category}"></td>
+							<td th:text="${stp.admission_year}"></td>
+							<td th:text="${stp.admission_type}"></td>
+							<td th:text="${stp.department}"></td>
+							<td th:text="${stp.course}"></td>
+							<td th:text="${stp.branch}"></td>
+
+							<td th:text="${stp.tenth_marks}"></td>
+							<td th:text="${stp.tenth_passing_year}"></td>
+							<td th:text="${stp.tenth_board}"></td>
+							<td th:text="${stp.twelth_marks}"></td>
+							<td th:text="${stp.twelth_passing_year}"></td>
+							<td th:text="${stp.twelth_board}"></td>
+							<td th:text="${stp.twelth_stream}"></td>
+							<td th:text="${stp.diploma_course}"></td>
+							<td th:text="${stp.diploma_branch}"></td>
+							<td th:text="${stp.diploma_marks}"></td>
+							<td th:text="${stp.diploma_passing_year}"></td>
+							<td th:text="${stp.graduation_university}"></td>
+							<td th:text="${stp.graduation_course}"></td>
+							<td th:text="${stp.graduation_branch}"></td>
+							<td th:text="${stp.graduation_marks}"></td>
+							<td th:text="${stp.graduation_passing_year}"></td>
+							<td th:text="${stp.tc}"></td>
+							<td th:text="${stp.cc}"></td>
+							<td th:text="${stp.aadhaar_card}"></td>
+							<td th:text="${stp.tenth_marksheet}"></td>
+							<td th:text="${stp.twelth_marksheet}"></td>
+							<td th:text="${stp.diploma}"></td>
+							<td th:text="${stp.graduation_degree}"></td>
+
+
+
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+
+		<script>
+			// JavaScript function to confirm deletion
+			function confirmDelete() {
+				var deleteAll = confirm('Are you sure you want to delete all students?');
+
+				if (deleteAll) {
+					// Set a hidden field value to indicate the intention to delete all
+					$('#deleteForm').append('<input type="hidden" name="deleteAll" value="true">');
+				}
+
+				return true; // Continue with form submission
+			}
+		</script>
+	</section>
+
+	<script th:src="@{/JS/script.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin_base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title></title>
+	<script>
+		function convertFieldsToUpperCase(formId) {
+			var form = document.getElementById(formId);
+			var inputs = form.querySelectorAll('input[type="text"]');
+
+			inputs.forEach(function (input) {
+				input.value = input.value.toUpperCase();
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<section>
+
+		<div class="container p-4">
+			<div class="row">
+				<div class="col-md-9 offset-md-1">
+					<div class="card mt-3">
+						<div class="card-body">
+							<th:block thLif="${session.msg}">
+								<p class="text-center text-success fs-4">[[${session.msg}]]</p>
+
+								<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+							</th:block>
+							<h3 class="text-center text-primary"><i class="fa-solid fa-user-plus"></i> Add Student's
+								Details</h3>
+
+							<form th:action="@{/user/save_student_details}"
+								onsubmit="convertFieldsToUpperCase('add_student_detals')" id="add_student_detals"
+								method="post" enctype="multipart/form-data" th:object="${student}">
+
+								<div class="form-group mt-4">
+									<label>Enrollment Number *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="10" class="form-control" name="enrollment_no"
+										id="enrollment_no" th:field="*{enrollment_no}" readonly="readonly">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Roll Number *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="10" class="form-control" name="roll_no" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Student Name *</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="name" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Father's Name *</label> <input
+										oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+										name="fatherName" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Mother's Name *</label> <input
+										oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+										name="motherName" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Date of Birth *</label> <input type="date" class="form-control" name="dob"
+										required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Gender *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="gender" class="form-control" name="gender" required>
+									<datalist id="gender">
+										<option value="Male">
+										<option value="Female">
+										<option value="Transgender">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Email Address *</label> <input type="email" class="form-control" name="email"
+										required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Contact Number 1 *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="10" class="form-control" name="contact_no_1" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Contact Number 2</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="10" class="form-control" name="contact_no_2">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Address *</label> <textarea oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" cols="5" name="address" required></textarea>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>District *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="District" class="form-control" name="district" required>
+									<datalist id="District">
+										<option value=" Aligarh">
+										<option value=" Prayagraj">
+										<option value=" Ambedkar Nagar">
+										<option value=" Amethi">
+										<option value=" Amroha">
+										<option value=" Auraiya">
+										<option value=" Azamgarh">
+										<option value=" Baghpat">
+										<option value=" Bahraich">
+										<option value=" Ballia">
+										<option value=" Balrampur">
+										<option value=" Banda">
+										<option value=" Barabanki">
+										<option value=" Bareilly">
+										<option value=" Basti">
+										<option value=" Bhadohi">
+										<option value=" Bijnor">
+										<option value=" Budaun">
+										<option value=" Bulandshahr">
+										<option value=" Chandauli">
+										<option value=" Chitrakoot">
+										<option value=" Deoria">
+										<option value=" Etah">
+										<option value=" Etawah">
+										<option value=" Ayodhya">
+										<option value=" Farrukhabad">
+										<option value=" Fatehpur">
+										<option value=" Firozabad">
+										<option value=" Gautam Buddha Nagar">
+										<option value=" Ghaziabad">
+										<option value=" Ghazipur">
+										<option value=" Gonda">
+										<option value=" Gorakhpur">
+										<option value="  Hamirpur">
+										<option value="  Hapur">
+										<option value="  Hardoi">
+										<option value="  Hathras">
+										<option value="  Jalaun">
+										<option value="  Jaunpur">
+										<option value="  Jhansi">
+										<option value="  Kannauj">
+										<option value="  Kanpur Dehat">
+										<option value="  Kanpur Nagar">
+										<option value="  Kasganj">
+										<option value="  Kaushambi">
+										<option value="  Kheri">
+										<option value="  Kushinagar">
+										<option value="  Lalitpur">
+										<option value="  Lucknow">
+										<option value="  Maharajganj">
+										<option value="  Mahoba">
+										<option value="  Mainpuri">
+										<option value="  Mathura">
+										<option value="  Mau">
+										<option value="  Meerut">
+										<option value="  Mirzapur">
+										<option value="  Moradabad">
+										<option value="  Muzaffarnagar">
+										<option value="  Pilibhit">
+										<option value="  Pratapgarh">
+										<option value="  Raebareli">
+										<option value="  Rampur">
+										<option value="  Saharanpur">
+										<option value="  Sambhal *">
+										<option value="  Sant Kabir Nagar">
+										<option value="  Shahjahanpur">
+										<option value="  Shamli">
+										<option value="  Shravasti">
+										<option value="  Siddharthnagar">
+										<option value="  Sitapur">
+										<option value="  Sonbhadra">
+										<option value="  Sultanpur">
+										<option value="  Unnao">
+										<option value="  Varanasi">
+										<option value="  Agra">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>State *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="State" class="form-control" name="state" required>
+									<datalist id="State">
+										<option value=" Andhra Pradesh">
+										<option value=" Arunachal Pradesh">
+										<option value=" Assam">
+										<option value=" Bihar">
+										<option value=" Chhattisgarh">
+										<option value=" Goa">
+										<option value=" Gujarat">
+										<option value=" Haryana">
+										<option value=" Himachal Pradesh">
+										<option value=" Jharkhand">
+										<option value=" Karnataka">
+										<option value=" Kerala">
+										<option value=" Madhya Pradesh">
+										<option value=" Maharashtra	">
+										<option value="  Manipur">
+										<option value=" Meghalaya">
+										<option value="  Mizoram">
+										<option value="  Nagaland">
+										<option value="  Odisha">
+										<option value=" Punjab">
+										<option value="  Rajasthan">
+										<option value="  Sikkim">
+										<option value="  Tamil Nadu">
+										<option value="  Telangana">
+										<option value=" Tripura">
+										<option value=" Uttar Pradesh">
+										<option value=" Uttarakhand">
+										<option value=" West Bengal">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Pin Code</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="6" class="form-control" name="pincode">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Aadhaar Number *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										type="number" maxlength="16" class="form-control" name="aadhaar_no" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>PAN Number</label> <input type="number" class="form-control" name="pan_no">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Religion *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="Religion" class="form-control" name="religion" required>
+									<datalist id="Religion">
+										<option value="Hindus">
+										<option value="Muslims">
+										<option value="Christians">
+										<option value="Sikhs">
+										<option value=" Buddhists">
+										<option value="Jains">
+										<option value="Other">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Category *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="Category" class="form-control" name="category" required>
+
+									<datalist id="Category">
+										<option value=" General">
+										<option value="OBC">
+										<option value="SC">
+										<option value="ST">
+										<option value="Minority">
+										<option value="Other">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Admission Year *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										list="year" maxlength="5" class="form-control" name="admission_year" required>
+									<datalist id="year">
+										<option value="2001">
+										<option value="2002">
+										<option value="2003">
+										<option value="2004">
+										<option value="2005">
+										<option value="2006">
+										<option value=" 2007">
+										<option value=" 2008">
+										<option value="2009">
+										<option value="2010">
+										<option value=" 2011">
+										<option value="2012">
+										<option value="2013">
+										<option value=" 2014">
+										<option value=" 2015">
+										<option value=" 2016">
+										<option value=" 2017">
+										<option value=" 2018">
+										<option value=" 2019">
+										<option value=" 2020">
+										<option value=" 2021">
+										<option value=" 2022">
+										<option value=" 2023">
+										<option value=" 2024">
+										<option value=" 2025">
+										<option value=" 2026">
+										<option value=" 2027">
+										<option value=" 2028">
+										<option value=" 2029">
+										<option value="2030">
+										<option value=" 2031">
+										<option value=" 2032">
+										<option value=" 2033">
+										<option value=" 2034">
+										<option value=" 2035">
+										<option value=" 2036">
+										<option value=" 2037">
+										<option value=" 2038">
+										<option value=" 2039">
+										<option value=" 2040">
+										<option value=" 2041">
+										<option value=" 2042">
+										<option value=" 2043">
+										<option value=" 2044">
+										<option value=" 2045">
+										<option value=" 2046">
+										<option value=" 2047">
+										<option value=" 2048">
+										<option value=" 2049">
+										<option value=" 2050">
+
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Admission Type *</label> <input
+										oninput="this.value = this.value.toUpperCase()" list="Admisiontype"
+										class="form-control" name="admission_type" required>
+									<datalist id="Admisiontype">
+										<option value="Reguler">
+										<option value=" Counseling">
+										<option value="Management">
+										<option value="Lateral">
+
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Department *</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="department" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Course *</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="course" required>
+								</div>
+
+								<div class="form-group mt-4">
+									<label>Branch *</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="branch" required>
+								</div>
+
+								<div class="form-group mt-4">
+									<label>10th Marks (%) *</label> <input type="number" class="form-control"
+										name="tenth_marks" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>10th Passing Year *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										list="year" maxlength="5" class="form-control" name="tenth_passing_year"
+										required>
+
+								</div>
+
+								<div class="form-group mt-3">
+									<label>10th Board *</label> <input oninput="this.value = this.value.toUpperCase()"
+										class="form-control" list="board10" name="tenth_board" required>
+									<datalist id="board10">
+										<option value="Board of Secondary Education (CBSE)">
+										<option value="Uttar Pradesh Board">
+										<option value="Goa Board">
+										<option value="Gujarat Secondary and Higher Secondary Education Board (GSEB)">
+										<option value="Haryana Board Of Secondary Education (HBSE)">
+										<option value="Indian Certificate of Secondary Education (ICSE)">
+										<option value="Jharkhand Academic Council (JAC)">
+										<option value="Jammu and Kashmir State Board of School Education (JKBOSE)">
+										<option value="Karnataka Board">
+										<option value="Kerala Board">
+										<option value="Maharashtra Board">
+										<option value="Manipur Board">
+										<option value="Meghalaya Board">
+										<option value="Mizoram Board of School Education">
+										<option value="Madhya Pradesh Board">
+										<option value="Nagaland Board of School Education">
+										<option value="National Institute of Open Schooling (NIOS)">
+										<option value="Orissa Board">
+										<option value="Punjab School Education Board">
+										<option value="Rajasthan Board Of Education (RBSE)">
+										<option value="Secondary Education Board of Assam (SEBA)">
+										<option value="Tamilnadu Board (TN Board)">
+										<option value="Telangana Board (TS Board)">
+										<option value="Tripura Board of Secondary Education (TBSE)">
+										<option value="Chhattisgarh Board of Secondary Education (CGBSE)">
+										<option value="Uttarakhand Board">
+										<option value="West Bengal Board">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-4">
+									<label>12th Marks (%) *</label> <input type="number" class="form-control"
+										name="twelth_marks" required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>12th Passing Year *</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										list="year" maxlength="5" class="form-control" name="twelth_passing_year"
+										required>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>12th Board *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="board" class="form-control" name="twelth_board">
+									<datalist id="board">
+										<option value="Board of Secondary Education (CBSE)">
+										<option value="Uttar Pradesh Board">
+										<option value="Goa Board">
+										<option value="Gujarat Secondary and Higher Secondary Education Board (GSEB)">
+										<option value="Haryana Board Of Secondary Education (HBSE)">
+										<option value="Indian Certificate of Secondary Education (ICSE)">
+										<option value="Jharkhand Academic Council (JAC)">
+										<option value="Jammu and Kashmir State Board of School Education (JKBOSE)">
+										<option value="Karnataka Board">
+										<option value="Kerala Board">
+										<option value="Maharashtra Board">
+										<option value="Manipur Board">
+										<option value="Meghalaya Board">
+										<option value="Mizoram Board of School Education">
+										<option value="Madhya Pradesh Board">
+										<option value="Nagaland Board of School Education">
+										<option value="National Institute of Open Schooling (NIOS)">
+										<option value="Orissa Board">
+										<option value="Punjab School Education Board">
+										<option value="Rajasthan Board Of Education (RBSE)">
+										<option value="Secondary Education Board of Assam (SEBA)">
+										<option value="Tamilnadu Board (TN Board)">
+										<option value="Telangana Board (TS Board)">
+										<option value="Tripura Board of Secondary Education (TBSE)">
+										<option value="Chhattisgarh Board of Secondary Education (CGBSE)">
+										<option value="Uttarakhand Board">
+										<option value="West Bengal Board">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>12th Stream *</label> <input oninput="this.value = this.value.toUpperCase()"
+										list="stream" class="form-control" name="twelth_stream">
+									<datalist id="stream">
+										<option value="PCM">
+										<option value="PCB">
+										<option value="Arts">
+									</datalist>
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Diploma Course</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="diploma_course">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Branch</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="diploma_branch">
+								</div>
+
+								<div class="form-group mt-4">
+									<label>Diploma Marks (%)</label> <input type="number" class="form-control"
+										name="diploma_marks">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Diploma Passing Year</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										list="year" maxlength="4" class="form-control" name="diploma_passing_year">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Graduation University</label> <input
+										oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+										name="graduation_university">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Graduation Course</label> <input
+										oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+										name="graduation_course">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Branch</label> <input oninput="this.value = this.value.toUpperCase()"
+										type="text" class="form-control" name="graduation_branch">
+								</div>
+
+								<div class="form-group mt-4">
+									<label>Graduation Marks (%)</label> <input type="number" class="form-control"
+										name="graduation_marks">
+								</div>
+
+								<div class="form-group mt-3">
+									<label>Graduation Passing Year</label> <input
+										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+										list="year" maxlength="4" class="form-control" name="graduation_passing_year">
+								</div>
+								<br>
+								<div class="form-group">
+									<label>Upload Image</label>
+									<input type="file" class="form-control-file" name="file" id="file">
+								</div>
+
+
+								<h4 class="text-center text-primary mt-5"><i class="fa-solid fa-file-invoice"></i>
+									Documents to be submit</h4>
+
+								<div class="form-group mt-4">
+									<label for="agreement">1. Transfer Certtifcate</label>
+									<input type="checkbox" name="tc" class="form-check-input" id="agreement" />
+								</div>
+
+								<div class="form-group mt-1">
+									<label for="agreement">2. Character Certtifcate</label>
+									<input type="checkbox" name="cc" class="form-check-input" id="agreement" />
+								</div>
+								<div class="form-group mt-1">
+									<label for="agreement">3. Aadhaar Cord</label>
+									<input type="checkbox" name="aadhaar_card" class="form-check-input"
+										id="agreement" />
+								</div>
+
+								<div class="form-group mt-1">
+									<label for="agreement">4. 10th Marksheet</label>
+									<input type="checkbox" name="tenth_marksheet" class="form-check-input"
+										id="agreement" />
+								</div>
+
+								<div class="form-group mt-1">
+									<label for="agreement">5. 12th Marksheet</label>
+									<input type="checkbox" name="twelth_marksheet" class="form-check-input"
+										id="agreement" />
+								</div>
+								<div class="form-group">
+									<label for="agreement mt-1">6. Diploma</label>
+									<input type="checkbox" name="diploma" class="form-check-input" id="agreement" />
+								</div>
+								<div class="form-group">
+									<label for="agreement mt-1">7. Graduation Degree</label>
+									<input type="checkbox" name="graduation_degree" class="form-check-input"
+										id="agreement" />
+								</div>
+
+								<div class="container text-center mt-4">
+									<button type="submit" class="btn btn-primary btn-block">Submit</button>
+									<button type="reset" class="btn btn-warning btn-block text-white">Reset</button>
+								</div>
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+
+
+</body>
+
+</html>
