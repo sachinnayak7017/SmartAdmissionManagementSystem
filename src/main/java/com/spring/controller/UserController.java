@@ -257,7 +257,7 @@ public class UserController {
 			// Handle the exception
 			session.setAttribute("msg", "student Not Added Sucessfully..");
 		}
-		return "user/add_student_details";
+		return "user/user_dashboard";
 	}
 
 	@GetMapping("/exportStudentsDetails")

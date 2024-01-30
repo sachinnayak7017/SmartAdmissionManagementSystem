@@ -210,7 +210,7 @@ public class StudentController {
 			// Handle the exception
 			session.setAttribute("msg", "student Not Added Sucessfully..");
 		}
-		return "redirect:student/add_student_details";
+		return "redirect:/student/add_student_details";
 	}
 
 	@GetMapping("/logout")

@@ -280,7 +280,7 @@ public class AdminController {
 			// Handle the exception
 			session.setAttribute("msg", "student Not Added Sucessfully..");
 		}
-		return "admin/add_student_details";
+		return "redirect:/admin/admin_dashboard";
 	}
 	
 	

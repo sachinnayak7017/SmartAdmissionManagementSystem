@@ -14,32 +14,6 @@
 			});
 		}
 	</script>
-<script th:inline="javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-        var form = document.getElementById("add_student_detals");
-
-        form.addEventListener("submit", function (event) {
-            setDefaultValues(form);
-        });
-    });
-
-    function setDefaultValues(form) {
-        var inputElements = form.querySelectorAll('input');
-
-        inputElements.forEach(function (element) {
-            // Check if the element is an input field and if it's empty
-            if (element.type !== "submit" && element.value.trim() === "") {
-                // Add a hidden field with the same name and value "null"
-                var hiddenField = document.createElement("input");
-                hiddenField.type = "hidden";
-                hiddenField.name = element.name;
-                hiddenField.value = "null";
-                form.appendChild(hiddenField);
-            }
-        });
-    }
-</script>
-
 
 </head>
 
@@ -64,11 +38,13 @@
 								method="post" enctype="multipart/form-data" th:object="${student}">
 
 								<div class="form-group mt-4">
-									<label>Enrollment Number *</label> <input
-										oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-										type="number" maxlength="10" class="form-control" name="enrollment_no" id="enrollment_no"  th:field="*{enrollment_no}"
-										readonly="readonly">
-								</div>
+                                   <label>Enrollment Number *</label>
+                                   <input
+                                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                       type="number" maxlength="10" class="form-control" name="enrollment_no" id="enrollment_no"
+                               th:field="*{enrollment_no}" readonly    >
+                               </div>
+
 
 								<div class="form-group mt-3">
 									<label>Roll Number *</label> <input
