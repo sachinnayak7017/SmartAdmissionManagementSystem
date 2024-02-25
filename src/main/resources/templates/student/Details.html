@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{student_base::layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{student_base2::layout(~{::section})}">
 
 <head>
 	<meta charset="UTF-8">
@@ -14,65 +14,16 @@
 
 <body>
 	<section>
-		<br>
-		<div class="text-center">
-			<h1>Student Profile</h1>
-		</div>
-		<br>
-
 		<th:block thLif="${session.msg}">
 			<p class="text-center text-success fs-4">[[${session.msg}]]</p>
 
 			<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
 		</th:block>
-
 		
-		<div class="container p-4">
-			<div class="card mt-3">
-				<div class="card-body">
-					<h1>Student Student Signup Details </h1>
-			
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">Student ID</th>
-								<td scope="col">Student <span th:text="${student.id}"></span></td>
-							</tr>
-						       <tr>
-								<th scope="row">Name</th>
-								<td><span th:text="${student.name}"></span></td>
-							</tr>
-
-							<tr>
-								<th scope="row">Email Address</th>
-								<td><span th:text="${student.email}"></span></td>
-							</tr>
-
-							<tr>
-								<th scope="row">Contact Number </th>
-								<td><span th:text="${student.phoneno}"></span></td>
-							</tr>
-
-							<tr>
-								<th scope="row">Password</th>
-								<td><span th:text="${student.password}"></span></td>
-							</tr>
-
-						</tbody>
-
-					</table>
-					
-				</div>
-					<a  th:href="@{'/student/Details/' +${student.email}}" class="btn btn-success text-center">Show Details</a>
-
-
-			</div>
-		</div>
-	<!--	<br>
 	<div class="container p-4">
 			<div class="card mt-3">
 				<div class="card-body">
-					<h1>Student Profile </h1>
+					<h1>Student Details </h1>
 		
                     <img th:src="@{'/student/student_dashboard/' + ${stpinfo.s_id}}" alt="Student Image" width="80" height="100">
                 
@@ -204,7 +155,7 @@
 
 						</tbody>
 
-					</table>-->
+					</table>
 
 				</div>
 

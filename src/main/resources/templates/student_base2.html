@@ -40,7 +40,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 					<li class="nav-item">
-						<a id="home-link" href="#" class="item nav-link active"><i
+						<a id="home-link" th:href="@{/student/student_dashboard}" class="item nav-link active"><i
 								class="fa-solid fa-house-user"></i> Home</a>
 					</li>
 
@@ -55,7 +55,7 @@
 								Register Now</a>
 
 							<a th:href="@{/student/profile}"  class="btn btn-success"><i class="fa-solid fa-user-tie"></i>
-								[[${student.name}]]</a>
+								Student</a>
 
 							<a href="" th:href="@{/logout}" class="btn btn-danger ml-3"><i
 									class="fa-solid fa-circle-left"></i>
@@ -77,10 +77,9 @@
 
 		<span onclick="toggleSideBar()" class="crossBtn">&times;</span>
 
-		<a id="profile-link" href="#"  class="item"><i class="fa-solid fa-house"></i> Home</a>
-
-	<a id="home-link" th:href="@{/student/profile}" class="item"><i class="fa-solid fa-house-user"></i>
-			Dashboard</a>
+		<a id="home-link" href="#" class="item"><i class="fa-solid fa-house-user"></i>
+			Home</a>
+		<a id="profile-link" th:href="@{/student/profile}"  class="item"><i class="fa-solid fa-user"></i> Dashboard</a>
 
 		<a  th:href="@{/student/add_student_details}" class="item"><i class="fa-solid fa-user-tie"></i>
 								Register Now</a>

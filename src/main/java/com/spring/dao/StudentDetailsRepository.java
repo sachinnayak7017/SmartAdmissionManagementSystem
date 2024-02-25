@@ -2,6 +2,7 @@ package com.spring.dao;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -28,6 +29,8 @@ public interface StudentDetailsRepository extends JpaRepository<Students_Details
 	List<Students_Details> findBykeyword(@Param("keyword") String keyword);
 	
 	long count();
+
+	Optional<Students_Details> findByEmail(String email);
 	
 
 }

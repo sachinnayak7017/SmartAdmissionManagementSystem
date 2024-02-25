@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.dao.SignUpStudentRepo;
 import com.spring.dao.UserRepository;
@@ -168,27 +169,27 @@ public class HomeController {
 	}
 	
 	
+
 	@PostMapping("/studentlogin")
-    public String studentLogin(@RequestParam String email, @RequestParam String password, Model model) {
-        Optional<SignUp_Student> studentOptional = signupRepo.findByEmail(email);
+	public String studentLogin(@RequestParam String email, @RequestParam String password, RedirectAttributes redirectAttributes, Model model) {
+	    Optional<SignUp_Student> studentOptional = signupRepo.findByEmail(email);
 
-        if (studentOptional.isPresent()) {
-            SignUp_Student student = studentOptional.get();
+	    if (studentOptional.isPresent()) {
+	        SignUp_Student student = studentOptional.get();
 
-            if (student.getPassword().equals(password)) {
-                // Successful login
-                model.addAttribute("student", student);
-                return "redirect:/student/student_dashboard";
-            } else {
-                // Password does not match
-                model.addAttribute("error", "Invalid password");
-                return "student_login";
-            }
-        } else {
-            // No student found with the given email
-            model.addAttribute("error", "No account found with this email");
-            return "student_login";
-        }
-    }
-
+	        if (student.getPassword().equals(password)) {
+	            // Successful login
+	            redirectAttributes.addAttribute("email", email); // Add email as a redirect attribute
+	            return "redirect:/student/student_dashboard";
+	        } else {
+	            // Password does not match
+	            model.addAttribute("error", "Invalid password");
+	            return "student_login";
+	        }
+	    } else {
+	        // No student found with the given email
+	        model.addAttribute("error", "No account found with this email");
+	        return "student_login";
+	    }
+	}
 }
