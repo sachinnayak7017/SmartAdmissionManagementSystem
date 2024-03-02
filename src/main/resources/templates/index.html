@@ -1,28 +1,594 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
 
 <head>
-	<meta charset="ISO-8859-1">
-	<title>index page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shobhit University</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png"  th:href="@{/images1/Logo.jpg}">
+
+    <!-- Bootstrap 5 CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Custom File's Link -->
+   
+    <link rel="stylesheet" th:href="@{/css1/style.css}" />
+    <link rel="stylesheet" th:href="@{css1/responsive-style.css}">
+
 </head>
 
-<body>
-	<section>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navbar section -->
+    <header class="header_wrapper" id="start">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img decoding="async"   th:src="@{/images1/Logo.jpg}" class="img-fluid" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-stream navbar-toggler-icon"></i>
+                </button>
 
-		<section class="banner d-flex justify-content-center align-items-center">
-			<div class="text-center">
-			
-				<h1 class="font-weight-bold">Student Management System</h1>
-				
-				<p>Start Collecting your student's data in very smarter way. We provide very efficient and smarter way of
-					handling data</p>
-				<button class="btn btn-primary btn-lg">Get Start</button>
-				
-				
-			</div>
-		</section>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav menu-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blog">Academics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Campus life</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#price">Placements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="course">Courses</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" href="login">Admin</a></li>
+                                <li><a class="nav-link" href="login">User</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="nav-link" href="studentlogin">Student</a></li>
+                        
+                            </ul>
+                        </li>
+                    </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-	</section>
+    <!-- Banner section -->
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img th:src="@{/images1/slider/slide1.jpg}" class="d-block w-100" alt="Banner image 3">
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img th:src="@{/images1/slider/slide2.jpg}" class="d-block w-100" alt="Banner image">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img th:src="@{/images1/slider/slide3.jpg}" class="d-block w-100" alt="Banner image 2">
+            </div>
+
+            <div class="carousel-item" data-bs-interval="2000">
+                <img th:src="@{/images1/slider/slide4.jpg}" class="d-block w-100" alt="Banner image 4">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <!-- About section -->
+    <section id="about" class="about_wrapper">
+        <div class="container">
+            <div class="row flex-lg-row flex-column-reverse ">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h3>Welcome to <span>Shobhit <br class="d-none d-lg-block">
+                            University</span> of your bright future</h3>
+                    <p>
+                        Our college boasts a dynamic and lively campus atmosphere where students are encouraged to
+                        freely express themselves and actively participate in a wide range of activities. Upholding a
+                        culture of inclusivity and mutual respect, our campus celebrates diversity and encourages
+                        students to engage in open dialogue and exchange of ideas.</p>
+                    <p>Our college equips students with the skills, confidence, and passion needed to succeed in all
+                        aspects of their lives.</p>
+                    <a href="#" class="main-btn mt-4">Explore</a>
+                </div>
+                <div class="col-lg-6 mb-4 mb-lg-0 ps-lg-4 text-center">
+                    <img decoding="async"  th:src="@{/images1/about/img.jpeg}" class="img-fluid" alt="About Us">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services section -->
+    <section id="services" class="services_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>We Are Here For You</h6>
+                    <h3>Our Awesome Services</h3>
+                </div>
+            </div>
+            <div class="row align-items-center service-item-wrap">
+                <div class="col-lg-7 p-lg-0">
+                    <!--Service Area Start-->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="spa" role="tabpanel">
+                            <img decoding="async"   th:src="@{/images1/services/sport-img.jpg}"alt="">
+                        </div>
+                        <div class="tab-pane fade" id="restaurent" role="tabpanel">
+                            <img decoding="async"   th:src="@{/images1/services/leb-img.jpg}"alt="">
+                        </div>
+                        <div class="tab-pane fade" id="swimming" role="tabpanel">
+                            <img decoding="async"  th:src="@{/images1/services/education-img.jpg}" alt="">
+                        </div>
+                        <div class="tab-pane fade" id="conference" role="tabpanel">
+                            <img decoding="async"   th:src="@{/images1/services/canteen-img.jpg}"alt="">
+                        </div>
+                    </div>
+                    <!--Service Area End-->
+                </div>
+                <div class="col-lg-5 position-relative">
+                    <!--Service Tab Menu Area Start-->
+                    <div class="service-menu-area">
+                        <ul class="nav">
+                            <li>
+                                <a data-bs-toggle="tab" href="#spa" class="active">
+                                    <span class="service-icon">
+                                        <img decoding="async"   th:src="@{/images1/services/sport-icon.jpg}"alt="">
+                                    </span>
+                                    <h5>Sport</h5>
+                                    <p><span>Spa and beauty </span>luptatem quia voluptas sit aspernatur aut odit aut
+                                        fugit, sed quia </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#restaurent">
+                                    <span class="service-icon">
+                                        <img decoding="async"   th:src="@{/images1/services/leb-icon.jpg}"alt="">
+                                    </span>
+                                    <h5>Computer Leb</h5>
+                                    <p><span>Restaurant</span> lup provide grro tatem quia voluptas sit aspernatur aut
+                                        odit aut fugit, </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#swimming">
+                                    <span class="service-icon">
+                                        <img decoding="async"  th:src="@{/images1/services/education-icon.jpg}" alt="">
+                                    </span>
+                                    <h5>Education</h5>
+                                    <p><span>Swimming</span> pool luptatem quia voluptas sit aspernatur aut odit aut
+                                        fugit, sed quia </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#conference">
+                                    <span class="service-icon">
+                                        <img decoding="async"  th:src="@{/images1/services/canteen-icon.jpg}" alt="">
+                                    </span>
+                                    <h5>Canteen</h5>
+                                    <p><span>Conference</span> luptatem quia voluptas sit aspernatur aut odit aut fugit,
+                                        sed quia </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Service Tab Menu Area End-->
+                </div>
+            </div>
+        </div>
+        <div class="counter mt-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>
+                            3500+
+                        </h1>
+                        <p>Students</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-2">
+
+                        <h1>57K+</h1>
+                        <p>Followers</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+
+                        <h1>300+</h1>
+                        <p>Teachers</p>
+                    </div>
+                    <div class="col-md-3 mb-lg-0 mb-md-0 mb-5">
+                        <h1>20+</h1>
+                        <p>H O D</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--placement section -->
+    <section id="price" class="price_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>Glance At The Top Companies Hiring From Shobhit University</h6>
+                    <h3>PLACEMENTS & CAREERS</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Achievement</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Recruiters hired</p>
+                            </li>
+                            <li>
+                                <p>Shobhit University</p>
+                            </li>
+                            <li>
+                                <p>Students</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <h3>300+<sub class="fs-6 fw-normal"></sub></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Achievement</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Highest intership </p>
+                            </li>
+                            <li>
+                                <p> stipend per</p>
+                            </li>
+                            <li>
+                                <p>year</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <h3>₹ 5.5 Lakh <sub class="fs-6 fw-normal"></sub></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Achievement</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Companies offering </p>
+                            </li>
+                            <li>
+                                <p>CTC 5 Lakh p.a.</p>
+                            </li>
+                            <li>
+                                <p>or above</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <h3>100+<sub class="fs-6 fw-normal"></sub></h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-4 text-center rounded-3">
+                        <h5 class="text-decoration-underline mb-4">Achievement</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Recruiters of </p>
+                            </li>
+                            <li>
+                                <p>IITs/IIMs/NITs also</p>
+                            </li>
+                            <li>
+                                <p>hire from SUG</p>
+                            </li>
+                        </ul>
+                        <hr />
+                        <h3>12+<sub class="fs-6 fw-normal"></sub></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team section -->
+    <!-- <div class="row">
+        <div class="col-sm-12 section-title text-center mb-3">
+            <h3>Top Placements in past year</h3>
+        </div>
+    </div>
+    <section id="team" class="team_wrapper wrapper">
+        <div class="container1">
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card rounded-3">
+                        <div class="team-img">
+                            <img decoding="async" src="images/New/" class="img-fluid">
+                        </div>
+                        <div class="team-info1 pt-4 text-center">
+                            <h5>Shubhash</h5>
+                            <h6>3.2 Lpa</h6>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card rounded-3">
+                        <div class="team-img">
+                            <img decoding="async" src="./images1/team/team2.png" class="img-fluid">
+                        </div>
+                        <div class="team-info1 pt-4 text-center">
+                            <h5>Salman Ahmed</h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card rounded-3">
+                        <div class="team-img">
+                            <img decoding="async" src="./images1/team/team3.png" class="img-fluid">
+                        </div>
+                        <div class="team-info1 pt-4 text-center">
+                            <h5>Salman Ahmed</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Team section -->
+    <section id="team" class="team_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>90% Students are Placed from Shobhit University</h6>
+                    <h3>Top Placements</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async"  th:src="@{/images1/placement/img1.jpeg}" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Rajeev Lochan Bishnoi</h5>
+                            <p>Director, Bank Of India</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" th:src="@{/images1/placement/img2.jpeg}" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Ruchit Gurg</h5>
+                            <p>Founder CEO @harvestingco</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" th:src="@{/images1/placement/img3.jpeg}" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Megha Jain</h5>
+                            <p>Fujitsu Consulting India LTD</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card p-0 rounded-3">
+                        <img decoding="async" th:src="@{/images1/placement/img4.jpeg}" class="img-fluid rounded-3" />
+                        <div class="team-info">
+                            <h5>Gaurav Tyagi</h5>
+                            <p>US Federal Government</p>
+                            <ul class="social-network">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- blog -->
+    <section id="blog" class="blog_wrapper pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 section-title text-center mb-5">
+                    <h6>Welcome to Shobhit University</h6>
+                    <h3>Our Blog</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async" th:src="@{/images1/blog/building-2.jpg}" alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4"> Building 1</h5>
+                            <h6>Entire Courses</h6>
+                            <p class="mt-2">Build your future with CS or Management</p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async" th:src="@{/images1/blog/building3.jpg}" alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4">Building 3</h5>
+                            <h6>Computer science & Management</h6>
+                            <p class="mt-2">Build your future with CS or Management</p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async"  th:src="@{/images1/blog/building-1.jpg}"alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4">Entire Courses Building 2</h5>
+                            <h6>Pharmacy</h6>
+                            <p class="mt-2">Build your future with Pharmacy</p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card p-0 border-0 rounded-0">
+                        <img decoding="async" th:src="@{/images1/blog/building 4.jpg}" alt="">
+                        <div class="blog-content bg-white p-4">
+                            <h5 class="text-decoration-underline mb-4">Building 4</h5>
+                            <h6>Pharmacy</h6>
+                            <p class="mt-2">Build your future with Pharmacy</p>
+                            <a href="#" class="main-btn mt-2">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="our-partner-slider mt-5">
+            <div class="container swiper our-partner">
+                <div class=" swiper-wrapper">
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/1-tcs.jpg}"></div>
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/2-globtier.jpg}"></div>
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/3-apex.jpg}"></div>
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/4-apart.jpg}"></div>
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/5-wibro.jpg}"></div>
+                    <div class="swiper-slide"><img decoding="async"  th:src="@{/images1/company/6-oodles.jpg}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <section id="contact" class="footer_wrapper mt-3 mt-md-0 pb-0">
+        <div class="container pb-3">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <h5>Shobhit Location</h5>
+                    <p class="ps-0">Shobhit University, Gangoh has been notified by the Govt. of Utter Pradesh vide Shobhit Vishwavidhaylaya,</p>
+                    <div class="contact-info">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-home me-3"></i>Babu Vijendra Marg, Gangoh-247341</a></li>
+                            <li><a href="#"><i class="fa fa-phone me-3"></i>7830810052, 9719356005</a></li>
+                            <li><a href="#"><i class="fa fa-envelope me-3"></i>www.sug.ac.in</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>More Links</h5>
+                    <ul class="link-widget p-0">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Office</a></li>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Our Store</a></li>
+                        <li><a href="#">Guarantee</a></li>
+                        <li><a href="#">Buy Gift Card</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Demo Links</h5>
+                    <ul class="link-widget p-0">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Office</a></li>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Our Store</a></li>
+                        <li><a href="#">Guarantee</a></li>
+                        <li><a href="#">Buy Gift Card</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5>Stay Connected</h5>
+                    <ul class="social-network d-flex align-items-center p-0">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid copyright-section">
+            <p>Devloped by - We are same devloper</p>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS CDN Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Custom Js Link -->
+    <script th:src="@{js1/main.js}"></script>
 </body>
 
 </html>

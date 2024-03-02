@@ -51,50 +51,31 @@ public class HomeController {
 	@GetMapping("/")
 	public String mainIndex() {
 
-		return "main_index";
+		return "index";
 
 	}
 	
-	
+	@GetMapping("/course")
+	public String course() {
 
-	@GetMapping("/admin_index")
+		return "course";
+	}
+
+	@GetMapping("/login")
 	public String adminIndex() {
 
-		return "admin/index";
+		return "user-sign-up";
 	}
 
-	@GetMapping("/admin_signin")
-	public String adminSignin() {
 
-		return "admin_login";
+	
 
-	}
+	
 
-	@GetMapping("/user_index")
-	public String userIndex() {
-
-		return "user/index";
-
-	}
-
-	@GetMapping("/user_signin")
-	public String userSignin() {
-
-		return "user_login";
-
-	}
-
-	@GetMapping("/register")
-	public String userRegister() {
-
-		return "register";
-
-	}
-
-	@GetMapping("/student_index")
+	@GetMapping("/studentlogin")
 	public String studentIndex() {
 
-		return "student/index";
+		return "student-sign-up";
 
 	}
 
@@ -112,11 +93,7 @@ public class HomeController {
 
 	}
 
-	@GetMapping("/about")
-	public String about() {
-
-		return "about";
-	}
+	
 
 	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute User user, HttpSession session, HttpServletRequest request,@RequestParam("file") MultipartFile file) {
@@ -138,16 +115,18 @@ public class HomeController {
 
 		if (u != null) {
 			session.setAttribute("msg", "Register successfully!"); //
-			System.out.println("save success!");
+			
 		} else {
 			session.setAttribute("msg", "Something wrong on server!");
-			System.out.println("error!");
+			
 		}
 	} catch (IOException e1) {
 		// Handle the exception
 	}
-		return "redirect:/register";
+		return "user-sign-up";
 	}
+	
+	
 	@PostMapping("/saveStudent")
 	public String savestudent(@ModelAttribute  SignUp_Student student, HttpSession session, HttpServletRequest request) {
 
@@ -165,7 +144,7 @@ public class HomeController {
 			System.out.println("error!");
 		}
 	
-		return "redirect:/student_register";
+		return "student-sign-up";
 	}
 	
 	

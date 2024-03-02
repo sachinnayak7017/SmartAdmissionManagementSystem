@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shobhit University</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" th:href="@{/images1/Logo.jpg}">
+
+    <!-- Bootstrap 5 CDN Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Custom File's Link -->
+    <link rel="stylesheet" th:href="@{/coursesCss/style.css}">
+    <link rel="stylesheet" th:href="@{css1/responsive-style.css}">
+
+</head>
+
+<body>
+    <header class="header_wrapper">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                 <a class="navbar-brand" href="#">
+                    <img decoding="async"   th:src="@{/images1/Logo.jpg}" class="img-fluid" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-stream navbar-toggler-icon"></i>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav menu-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rooms">Admissions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Academics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">Campus life</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Placements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Cources</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#price">Services</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container-1">
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">B.Tech.</div>
+          <ul>
+              <li class="main">B.Tech. Computer Science & Engg</li>
+              <li>Artificial Intelligence</li>
+              <li>Cloud Computing</li>
+              <li>Cyber Security</li>
+              <li class="main">B.Tech. Electronics Engineering</li>
+              <li>Signal Processing</li>
+              <li>Integrated Circuits</li>
+              <li>Power and Energy Systeums</li>
+              <li>Telecommunication Engineering</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">M.Tech.</div>
+          <ul>
+              <li class="main">M.Tech. Computer Science & Engg</li>
+              <li class="main">M.Tech. Electronics Engineering</li>
+
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Polytechnic Dipploma</div>
+          <ul>
+              <li>Electrical Engineering</li>
+              <li>Mechanical Engineering</li>
+              <li>Civil Engineering</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Computer Applications</div>
+          <ul>
+              <li class="main">BCA</li>
+              <li class="main">MCA</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Education</div>
+          <ul>
+              <li class="main">B.Ed.</li>
+              <li class="main">BPES</li>
+              <li class="main">MA</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Ayurveda</div>
+          <ul>
+              <li class="main">B.A.M.S (5.5 years)</li>
+              <li class="main">M.S. (Shalya Tantra 3 Years)</li>
+              <li class="main">M.D. (Kayachikitsa 3 Years)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Management & Commerce</div>
+          <ul>
+              <li class="main">B.Com. (Honors)</li>
+              <li class="main">BBA</li>
+              <li>HR Management</li>
+              <li>Branding and Advertising</li>
+              <li>Banking Finance and Insurance</li>
+              <li class="main">MBA</li>
+              <li>Marketing Management</li>
+              <li>Finance Management</li>
+              <li>Human Resource Management</li>
+              <li>Agri-Business Management</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Agriculture</div>
+          <ul>
+              <li class="main">B.Sc. (Agriculture 4 Years)</li>
+              <li class="main">M.Sc. (Agronomy)</li>
+              <li class="main">M.Sc. (Horticulture)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">B.Sc. Programs</div>
+          <ul>
+              <li class="main">B.Sc. (Biomedical Science)</li>
+              <li class="main">B.Sc. (Biotechnology)</li>
+              <li class="main">B.Sc. (Micobiology)</li>
+              <li class="main">B.Sc. (Physics, Chemistry, Maths)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">M.Sc. Programs</div>
+          <ul>
+              <li class="main">M.Sc. (Biomedical Science)</li>
+              <li class="main">M.Sc. (Biotechnology)</li>
+              <li class="main">M.Sc. (Micobiology)</li>
+              <li class="main">M.Sc. (Mathematics)</li>
+              <li class="main">M.Sc. (Chemistry)</li>
+              <li class="main">M.Sc. (Physics)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Low Programs</div>
+          <ul>
+              <li class="main">B.A., LL.B. (5 Years)</li>
+              <li class="main">LL.B (3 Years)</li>
+              <li class="main">LL.M. (2 Years)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Pharmacy</div>
+          <ul>
+              <li class="main">D.Pharma</li>
+              <li class="main">B.Pharma (18th Batch)</li>
+              <li class="main">M.Pharma (Pharmacology)</li>
+              <li class="main">M.Pharma (Pharmaceutics)</li>
+              <li class="main">M.Pharm. (Pharmaceutical Chemistry)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Naturopathy & Yoga</div>
+          <ul>
+              <li class="main">B.N.Y.S (5.5 Years)</li>
+              <li class="main">BA (Yoga)</li>
+              <li class="main">MA (Yoga)</li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Liberal Arts & Languages</div>
+          <ul>
+              <li class="main">B.A (Hindi/English/Political Science/Sociology/Public Admin/History)</li>
+              <li class="main">M.A. (English)</li>
+              <li class="main">M.A. (Sociology)</li>
+              <li class="main">M.A. (Political Science)</li>
+              <li></li>
+          </ul>
+      </div>
+      <div class="box">
+          <div class="highlight"></div>
+          <div class="heading">Research Programs</div>
+          <ul>
+              <li class="main">Ph.D.</li>
+          </ul>
+      </div>
+  </div>
+
+    <!-- Bootstrap 5 JS CDN Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>

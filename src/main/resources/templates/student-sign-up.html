@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css1/sign-up-style.css}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+          <div class="title login">Login</div>
+          <div class="title signup">Signup</div>
+        </div>
+        <div class="form-container">
+          <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Signup</label>
+            <div class="slider-tab"></div>
+          </div>
+          <th:block thLif="${session.msg}">
+							<p class="text-center text-success fs-4">[[${session.msg}]]</p>
+
+							<th:block th:text="${@userServiceImp.removeSessionMessage()}"></th:block>
+						</th:block>
+
+            <th:block th:if="${param.error}">
+								<p class="text-center text-danger fs-5">
+									[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+							</th:block>
+
+							<th:block th:if="${param.logout}">
+								<p class="text-center text-success fs-5">logout successfully !</p>
+							</th:block>
+
+							<th:block th:if="${param.change}" class="alert alert-success">
+								<p th:text="${param.change}"></p>
+							</th:block>
+          <div class="form-inner">
+			
+            <form action="studentlogin" method="post" class="login">
+              <div class="field">
+                <input type="email" placeholder="Email Number" id="email" name="email" required>
+              </div>
+              <div class="field">
+                <input type="password" placeholder="Password" name="password" required>
+              </div>
+              
+              <div class="pass-link"><a href="/forgot_password">Forgot password?</a></div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Login">
+              </div>
+              <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+            </form>
+            
+            <form action="saveStudent" method="post" class="signup">
+              <div class="field">
+                <input type="text" placeholder="Student Name" name="name" required>
+              </div>
+               <div class="field">
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+				type="number" maxlength="10" placeholder="Contact number" name="phoneno" required>>
+              </div>
+              <div class="field">
+                <input type="email" placeholder="Student Email" name="email" required>
+              </div>
+              <div class="field">
+                <input type="password" placeholder="Password" name="password" required>
+              </div>
+             
+              
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Signup">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script th:src="@{js1/sign-up.js}"></script>
+</body>
+</html>
